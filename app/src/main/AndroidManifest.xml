@@ -4,12 +4,12 @@
 
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:hardwareAccelerated="false"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:largeHeap="true"
         android:theme="@style/AppTheme">
         <activity android:name=".AlbumActivity">
             <intent-filter>
@@ -19,7 +19,7 @@
         </activity>
         <activity
             android:name=".PopActivity"
-            android:label="@string/pop_album"/>
+            android:label="@string/pop_album" />
         <activity
             android:name=".RockActivity"
             android:label="@string/rock_album" />
@@ -28,10 +28,10 @@
             android:label="@string/rap_album" />
         <activity
             android:name=".ClassicActivity"
-            android:label="@string/classic_album"/>
+            android:label="@string/classic_album" />
         <activity
             android:name=".MediaPlayerActivity"
-            android:label="@string/now_playing"/>
+            android:label="@string/now_playing" />
     </application>
 
 </manifest>
