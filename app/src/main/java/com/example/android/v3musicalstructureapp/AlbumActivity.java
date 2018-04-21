@@ -32,27 +32,37 @@ public class AlbumActivity extends AppCompatActivity {
         albumGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0) {
-                    Intent albumIntent = new Intent(AlbumActivity.this, PopActivity.class);
-                    startActivity(albumIntent);
-                }
+                switch (position) {
+                    case 0:
+                        Intent albumIntent = new Intent(AlbumActivity.this, PopActivity.class);
+                        startActivity(albumIntent);
+                        break;
 
-                if (position == 1) {
-                    Intent albumIntent = new Intent(AlbumActivity.this, RockActivity.class);
-                    startActivity(albumIntent);
-                }
+                    case 1:
+                        Intent albumIntent1 = new Intent(AlbumActivity.this, RockActivity.class);
+                        startActivity(albumIntent1);
+                        break;
 
-                if (position == 2) {
-                    Intent albumIntent = new Intent(AlbumActivity.this, RapActivity.class);
-                    startActivity(albumIntent);
-                }
 
-                if (position == 3) {
-                    Intent albumIntent = new Intent(AlbumActivity.this, ClassicActivity.class);
-                    startActivity(albumIntent);
+                    case 2:
+                        Intent albumIntent2 = new Intent(AlbumActivity.this, RapActivity.class);
+                        startActivity(albumIntent2);
+                        break;
+
+                    case 3:
+                        Intent albumIntent3 = new Intent(AlbumActivity.this, ClassicActivity.class);
+                        startActivity(albumIntent3);
+
                 }
             }
         });
     }
 }
+
+
+
+
+
+
+
 

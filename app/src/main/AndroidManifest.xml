@@ -14,15 +14,24 @@
         <activity android:name=".AlbumActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PopActivity"></activity>
-        <activity android:name=".RockActivity"></activity>
-        <activity android:name=".RapActivity"></activity>
-        <activity android:name=".ClassicActivity"></activity>
-        <activity android:name=".MediaPlayerActivity"></activity>
+        <activity
+            android:name=".PopActivity"
+            android:label="@string/pop_album"/>
+        <activity
+            android:name=".RockActivity"
+            android:label="@string/rock_album" />
+        <activity
+            android:name=".RapActivity"
+            android:label="@string/rap_album" />
+        <activity
+            android:name=".ClassicActivity"
+            android:label="@string/classic_album"/>
+        <activity
+            android:name=".MediaPlayerActivity"
+            android:label="@string/now_playing"/>
     </application>
 
 </manifest>

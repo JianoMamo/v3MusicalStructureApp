@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">(v3)MusicalStructureApp</string>
+    <string name="app_name">MusicalStructureApp</string>
     <string name="now_playing">Now playing</string>
     <string name="next_song">next_song</string>
     <string name="action_settings">Settings</string>
@@ -12,4 +12,8 @@
     <string name="album_name">Album name</string>
     <string name="singer_name">Singer Name</string>
     <string name="song_name">Song Name</string>
+    <string name="classic_album">classicAlbum</string>
+    <string name="rap_album">rapAlbum</string>
+    <string name="rock_album">rockAlbum</string>
+    <string name="pop_album">popAlbum</string>
 </resources>
