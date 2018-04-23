@@ -2,19 +2,29 @@ package com.example.android.v3musicalstructureapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class RockActivity extends AppCompatActivity {
+
+    @BindView(R.id.song_listView)
+    ListView songListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.song_list);
+        ButterKnife.bind(this);
 
         final ArrayList<Songs> songsArrayList = new ArrayList<>();
         songsArrayList.add(new Songs(R.drawable.guns_n_roses, "Paradise City", "Guns n Roses"));
@@ -26,8 +36,6 @@ public class RockActivity extends AppCompatActivity {
         songsArrayList.add(new Songs(R.drawable.iron_maiden_fear_of_the_dark, "Fear Of The Dark", "Iron Maiden"));
 
         SongAdapter songAdapter = new SongAdapter(this, 0, songsArrayList);
-
-        ListView songListView = findViewById(R.id.song_listView);
 
         songListView.setAdapter(songAdapter);
 

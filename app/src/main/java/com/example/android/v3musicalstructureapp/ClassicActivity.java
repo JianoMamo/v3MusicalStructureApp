@@ -10,12 +10,19 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class ClassicActivity extends AppCompatActivity {
+
+    @BindView(R.id.song_listView)
+    ListView songListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.song_list);
+        ButterKnife.bind(this);
 
         final ArrayList<Songs> songsArrayList = new ArrayList<>();
         songsArrayList.add(new Songs(R.drawable.beethoven, "Symphony No. 9 in D minor (\"Choral\")", "Ludwig van Beethoven"));
@@ -27,8 +34,6 @@ public class ClassicActivity extends AppCompatActivity {
         songsArrayList.add(new Songs(R.drawable.vivaldi, "Four Seasons", "Vivaldi"));
 
         SongAdapter songAdapter = new SongAdapter(this, 0, songsArrayList);
-
-        ListView songListView = findViewById(R.id.song_listView);
 
         songListView.setAdapter(songAdapter);
 
@@ -42,6 +47,5 @@ public class ClassicActivity extends AppCompatActivity {
                 startActivity(songIntent);
             }
         });
-
     }
 }

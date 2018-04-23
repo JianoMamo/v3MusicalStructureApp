@@ -19,19 +19,44 @@
         </activity>
         <activity
             android:name=".PopActivity"
-            android:label="@string/pop_album" />
+            android:label="@string/pop_album"
+            android:parentActivityName=".AlbumActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AlbumActivity" />
+        </activity>
         <activity
             android:name=".RockActivity"
-            android:label="@string/rock_album" />
+            android:label="@string/rock_album"
+            android:parentActivityName=".AlbumActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AlbumActivity" />
+        </activity>
         <activity
             android:name=".RapActivity"
-            android:label="@string/rap_album" />
+            android:label="@string/rap_album"
+            android:parentActivityName=".AlbumActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AlbumActivity" />
+        </activity>
         <activity
             android:name=".ClassicActivity"
-            android:label="@string/classic_album" />
+            android:label="@string/classic_album"
+            android:parentActivityName=".AlbumActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AlbumActivity" />
+        </activity>
         <activity
             android:name=".MediaPlayerActivity"
-            android:label="@string/now_playing" />
+            android:label="@string/now_playing" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AlbumActivity" />
+        </activity>
     </application>
 
 </manifest>
+

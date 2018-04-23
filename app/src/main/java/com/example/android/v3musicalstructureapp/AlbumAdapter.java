@@ -12,6 +12,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class AlbumAdapter extends ArrayAdapter<Albums> {
     public AlbumAdapter(@NonNull Context context, int resource, @NonNull List<Albums> objects) {
         super(context, resource, objects);
@@ -21,16 +24,27 @@ public class AlbumAdapter extends ArrayAdapter<Albums> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
-        View gridItemView = convertView;
+        if (convertView == null) {
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.album_item, parent, false);
+            ButterKnife.bind(this,convertView);
+        }
 
-        if (gridItemView == null)
-            gridItemView = LayoutInflater.from(getContext()).inflate(R.layout.album_item, parent, false);
+        ButterKnife.bind(this,convertView);
+        ViewHolder holder = new ViewHolder(convertView);
 
         Albums currentAlbum = getItem(position);
-        ImageView albumImageView = gridItemView.findViewById(R.id.iv_album_photo);
-        albumImageView.setImageResource(currentAlbum.getImageAlbumId());
-        TextView albumNameView = gridItemView.findViewById(R.id.tv_album_name);
-        albumNameView.setText(currentAlbum.getNameAlbumId());
-        return gridItemView;
+        holder.albumImageView.setImageResource(currentAlbum.getImageAlbumId());
+        holder.albumNameView.setText(currentAlbum.getNameAlbumId());
+        return convertView;
+        }
+
+    static class ViewHolder {
+
+        @BindView(R.id.iv_album_photo) ImageView albumImageView;
+        @BindView(R.id.tv_album_name) TextView albumNameView;
+
+        public ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
     }
 }

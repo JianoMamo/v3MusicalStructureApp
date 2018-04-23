@@ -1,6 +1,6 @@
 package com.example.android.v3musicalstructureapp;
 
-import android.app.Activity;
+
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,12 +10,19 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class RapActivity extends AppCompatActivity {
+
+    @BindView(R.id.song_listView)
+    ListView songListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.song_list);
+        ButterKnife.bind(this);
 
         final ArrayList<Songs> songsArrayList = new ArrayList<>();
         songsArrayList.add(new Songs(R.drawable.cent_50, "In Da Club", "50 cent"));
@@ -27,8 +34,6 @@ public class RapActivity extends AppCompatActivity {
         songsArrayList.add(new Songs(R.drawable.jay_z, "Girls, Girls, Girls", "Jay - Z"));
 
         SongAdapter songAdapter = new SongAdapter(this, 0, songsArrayList);
-
-        ListView songListView = findViewById(R.id.song_listView);
 
         songListView.setAdapter(songAdapter);
 

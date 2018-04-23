@@ -12,6 +12,9 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 public class SongAdapter extends ArrayAdapter<Songs> {
 
@@ -23,19 +26,30 @@ public class SongAdapter extends ArrayAdapter<Songs> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
-        View listItemView = convertView;
 
-        if (listItemView == null) {
-            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
+
+        if (convertView == null) {
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
+            ButterKnife.bind(this,convertView);
         }
 
+        ButterKnife.bind(this,convertView);
+        ViewHolder holder = new ViewHolder(convertView);
+
         Songs currentSong = getItem(position);
-        TextView songView = listItemView.findViewById(R.id.tv_song_name);
-        songView.setText(currentSong.getSongNameId());
-        TextView singerView = listItemView.findViewById(R.id.tv_singer_name);
-        singerView.setText(currentSong.getSingerNameId());
-        ImageView imageSongView = listItemView.findViewById(R.id.iv_cover);
-        imageSongView.setImageResource(currentSong.getImageSongId());
-        return listItemView;
+        holder.songTextView.setText(currentSong.getSongNameId());
+        holder.singerNameTextView.setText(currentSong.getSingerNameId());
+        holder.songImageView.setImageResource(currentSong.getImageSongId());
+        return convertView;
+    }
+
+    static class ViewHolder {
+        @BindView(R.id.tv_song_name) TextView songTextView;
+        @BindView(R.id.tv_singer_name) TextView singerNameTextView;
+        @BindView(R.id.iv_cover) ImageView songImageView;
+
+        public ViewHolder(View view) {
+            ButterKnife.bind(this,view);
+        }
     }
 }

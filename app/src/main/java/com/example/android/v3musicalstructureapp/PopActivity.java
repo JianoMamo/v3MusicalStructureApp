@@ -9,12 +9,19 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class PopActivity extends AppCompatActivity {
+
+    @BindView(R.id.song_listView)
+    ListView songListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.song_list);
+        ButterKnife.bind(this);
 
         final ArrayList<Songs> songsArrayList = new ArrayList<>();
         songsArrayList.add(new Songs(R.drawable.lana_del_ray, "Born to die", "Lana Del Ray"));
@@ -26,8 +33,6 @@ public class PopActivity extends AppCompatActivity {
         songsArrayList.add(new Songs(R.drawable.katy_perry, "Roar", "Katy Perry"));
 
         SongAdapter songAdapter = new SongAdapter(this, 0, songsArrayList);
-
-        ListView songListView = findViewById(R.id.song_listView);
 
         songListView.setAdapter(songAdapter);
 
@@ -41,6 +46,5 @@ public class PopActivity extends AppCompatActivity {
                 startActivity(songIntent);
             }
         });
-
     }
 }
